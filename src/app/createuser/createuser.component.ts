@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input,Output, ChangeDetectionStrategy, ChangeDetectorRef,EventEmitter  } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { UserData } from '../models/createUser'
 
@@ -11,15 +11,16 @@ import { UserData } from '../models/createUser'
 })
 export class CreateuserComponent implements OnInit {
   //variables instacia
-  name: any = "Nombre del empleado"
-  lastName: any = "Apellido del empleado"
-  birth: any = "cumpleaños"
-  amount: any = "sueldo";
+  name: any;
+  lastName: any;
+  birth: any;
+  amount: any;
 
   //decoradores de comunciacion entre componentes
   @Input("user") user: any;
-  @Input("editable") editable: boolean = false;
+  @Input("updateUser") updateUser: boolean = false;
   @Input("title") title: string;
+  @Output('update') update: EventEmitter<any> = new EventEmitter();
 
   constructor(private services: HttpService, private changeDetection: ChangeDetectorRef) {
   }
@@ -29,18 +30,15 @@ export class CreateuserComponent implements OnInit {
   ngAfterViewInit(): void {
     //logica de dectcion de eventos y cambios  en el formulario
     this.changeDetection.markForCheck();
+    this.changeDetection.markForCheck();
     setInterval(() => {
       this.changeDetection.detectChanges();
-      this.name = this.user.name
-      this.lastName = this.user.lastName
-      this.birth = this.user.birthdate
-      this.amount = this.user.pay
-    }, 500)
+    }, 100)
   }
 
   //funcio de update y create dependiendo del rol
   handle() {
-    if (!this.editable) {
+    if (!this.updateUser) {
       let data: UserData = {
         name: this.name,
         lastName: this.lastName,
@@ -53,7 +51,16 @@ export class CreateuserComponent implements OnInit {
       })
     }
     else {
-      this.services.updateEmployee(this.user.id).subscribe(data => {
+      this.services.updateEmployee(
+        {
+          id: this.user.id,
+          name: this.name,
+          lastName: this.lastName,
+          birthdate: this.birth,
+          pay: this.amount
+        } 
+      ).subscribe(data => {
+        this.update.emit(this.user.id);
         console.log(data, "empleado actualizado")
       }, (e) => {
         console.log(e, "empleado no actualizado")

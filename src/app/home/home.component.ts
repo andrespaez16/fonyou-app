@@ -10,6 +10,7 @@ import { UserData } from '../models/createUser'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  //vavriables de instacia del componente
   name: any;
   lastname: any;
   birth: any;
@@ -17,13 +18,21 @@ export class HomeComponent implements OnInit {
   editable: boolean = true;
   user1: number = 0;
   user: number = 0;
+  init = {
+    name: "Nombre de empleado",
+    lastName: "Apellido del empleado",
+    birthdate: "Cumpleaños",
+    pay: "Sueldo"
+  };
+
   handleView: boolean = false;
+  refresh: boolean = false;
+  id:any;
 
 
   constructor(private route: ActivatedRoute, private title: Title, private router: Router, private services: HttpService) { }
 
   ngOnInit() {
-    this.title.setTitle(this.route.snapshot.data['title']);
   }
   //servicio put del usuario
 
@@ -39,9 +48,14 @@ export class HomeComponent implements OnInit {
       console.log(e.error)
     })
   }
+//funcion de refrescar las lista
+  updateList(i: any) {
+    this.refresh = true;
+    console.log("refrescando")
+  }
+//funcion de captura el id para utilixarlo en el componente
 
   setId(param: any) {
-    this.handleView = false;
     this.handleView = true;
     this.user = param;
     this.editable = false;
