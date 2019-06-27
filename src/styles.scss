@@ -1,0 +1,31 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+body {
+    user-select: none;
+    height: 100vh;
+    position: relative;
+    display: block;
+}
+
+@for $var from 1 to 20 {
+    .mt-#{$var} {
+        margin-top: $var + 0em;
+    }
+    .mb-#{$var} {
+        margin-bottom: $var + 0em;
+    }
+    .pt-#{$var} {
+        padding-top: $var + 0em;
+    }
+    .pb-#{$var} {
+        padding-bottom: $var + 0em;
+    }
+    .pd-#{$var} {
+        padding: $var + 0em;
+    }
+}
+.np {
+    padding-left: 0;
+    padding-right: 0;
+}

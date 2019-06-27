@@ -1,0 +1,22 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col">
+             <h2> {{title}}</h2>
+            </div>
+        </div> 
+         <div class="row">
+             <div class="col">
+                 <input [disabled]="editable" [(ngModel)]="lastName" class="form-control" type="text" [placeholder]="user.id">
+                 <input [disabled]="editable" [(ngModel)]="name" class="form-control" type="text" [placeholder]="user.name">
+                 <input [disabled]="editable"[(ngModel)]="birth" class="form-control" type="datetime" [placeholder]="user.birthdate">
+                 <input [disabled]="editable" [(ngModel)]="amount" class="form-control" type="number" min="500000" [placeholder]="user.pay">
+             </div>
+         </div>
+         <div class="row mt-1">
+             <div class="col">
+                 <button class="btn btn-info create-button" (click)="handle()">
+                     {{title}}
+                 </button>
+             </div>
+         </div>
+ </div>

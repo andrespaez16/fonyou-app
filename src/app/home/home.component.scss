@@ -1,0 +1,41 @@
+.home {
+  width: 100%;
+  height: 100vh;
+
+  .list {
+    width: 100%;
+    height: 40vh;
+    max-height: 40vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .list-users {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0.5em;
+        width: 50%;
+        background-color: #ffffff;
+        li {
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+        }
+    }
+  }
+
+}
+.logo{
+  margin: 20px;
+}
+.form-control{
+  width: 80%;
+  margin-top: 20px;
+}
+.create-button{
+  width: 80%;
+  margin-top:20px;
+}
+
+h2{
+  color: gray;
+}

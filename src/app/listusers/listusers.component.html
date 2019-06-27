@@ -1,0 +1,29 @@
+<div class="list">
+    <ul class="list-users">
+        <li *ngFor="let user of employees|async">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col d-flex justify-content-start np">
+                        <span>
+                            {{
+                                user.name
+                                }}
+                        </span>
+                    </div>
+                    <div class="col-1 d-flex justify-content-end np">
+                        <button class="btn btn-danger" (click)=" deleteEmployee(user.id)">
+                            <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+                        </button>
+                    </div>
+                    <div class="col-1 d-flex justify-content-end np">
+                        <button class="btn btn-success" (click)="
+                            showEmployes(user.id)">
+                            <fa-icon [icon]="['fas', 'eye']"></fa-icon>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
