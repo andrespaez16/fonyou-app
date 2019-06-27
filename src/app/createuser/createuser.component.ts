@@ -10,13 +10,13 @@ import { UserData } from '../models/createUser'
   styleUrls: ['./createuser.component.scss']
 })
 export class CreateuserComponent implements OnInit {
-//variables instacia
+  //variables instacia
   name: any = "Nombre del empleado"
   lastName: any = "Apellido del empleado"
   birth: any = "cumpleaños"
   amount: any = "sueldo";
-  
-//decoradores de comunciacion entre componentes
+
+  //decoradores de comunciacion entre componentes
   @Input("user") user: any;
   @Input("editable") editable: boolean = false;
   @Input("title") title: string;

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter ,Input, ChangeDetectionStrategy} from '@angular/core';
 import{HttpService} from '../services/http.service';
-import {UserData} from '../models/createUser'
 import{Observable,of} from 'rxjs';
 
 
@@ -10,11 +9,14 @@ import{Observable,of} from 'rxjs';
   styleUrls: ['./listusers.component.scss']
 })
 export class ListusersComponent implements OnInit {
-  //arrglos que contiene la lista de empleados
-  
+  //arrglos que contiene la lista de empleados como observable
+
   employees:Observable<Array<any>> = new Observable()
+
+//decoradores de comunciacion entre componentes
   @Input ('data')data:any
   @Output("getId")getId:EventEmitter<any>= new EventEmitter()
+
   constructor(private services:HttpService) { }
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class ListusersComponent implements OnInit {
     })
   }
 
-//fucnion de borrar
+//funcion de borrar
   deleteEmployee(id:any){
     this.services.deleteEmployee(id).subscribe(data=>{
       this.employees.subscribe(resp=>{
@@ -43,6 +45,7 @@ export class ListusersComponent implements OnInit {
     })
 
   }
+//funcion mostrar un empleado por su id
 
   showEmployes(id:any){
     this.services.showEmployee(id).subscribe((data:any)=>{

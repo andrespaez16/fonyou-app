@@ -9,19 +9,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-
-
 import { AppRoutingModule } from './app-routing.module';
+//componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreateuserComponent } from './createuser/createuser.component';
-import { DeleteuserComponent } from './deleteuser/deleteuser.component';
-import { EdituserComponent } from './edituser/edituser.component';
 import { ListusersComponent } from './listusers/listusers.component';
+
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
-import { ShowuserComponent } from './showuser/showuser.component';
-
 //importacion de hhtp client
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import{HttpService} from './services/http.service'
@@ -32,11 +28,7 @@ import{HttpService} from './services/http.service'
     AppComponent,
     HomeComponent,
     CreateuserComponent,
-    DeleteuserComponent,
-    EdituserComponent,
-    ListusersComponent,
-    ShowuserComponent
-    
+    ListusersComponent  
   ],
   imports: [
     BrowserModule,

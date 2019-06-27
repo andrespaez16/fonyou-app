@@ -5,7 +5,7 @@
                 <img class="logo" src="../../assets/descarga.png" width="300px" height="300px">
             </div>
             <div class="col-6">
-                <app-createuser title="Crear Empleado" [user]="user1" ></app-createuser>
+                <app-createuser title="Crear Empleado" [user]="user1"></app-createuser>
             </div>
         </div>
     </div>
@@ -17,8 +17,9 @@
             </div>
             <div class="col-6">
                 <ng-template [ngIf]="handleView">
-                    <app-createuser title="Actualizar Datos del Empleado" [user]="user" [editable]="editable"></app-createuser>
-                </ng-template>          
+                    <app-createuser title="Actualizar Datos del Empleado" [user]="user" [editable]="editable">
+                    </app-createuser>
+                </ng-template>
             </div>
         </div>
     </div>
