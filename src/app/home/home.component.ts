@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   handleView: boolean = false;
   refresh: boolean = false;
-  id:any;
+  id: any;
 
 
   constructor(private route: ActivatedRoute, private title: Title, private router: Router, private services: HttpService) { }
@@ -48,12 +48,12 @@ export class HomeComponent implements OnInit {
       console.log(e.error)
     })
   }
-//funcion de refrescar las lista
+  //funcion de refrescar las lista
   updateList(i: any) {
     this.refresh = true;
     console.log("refrescando")
   }
-//funcion de captura el id para utilixarlo en el componente
+  //funcion de captura el id para utilixarlo en el componente
 
   setId(param: any) {
     this.handleView = true;

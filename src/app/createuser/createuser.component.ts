@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,Output, ChangeDetectionStrategy, ChangeDetectorRef,EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, ChangeDetectionStrategy, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { UserData } from '../models/createUser'
 
@@ -58,7 +58,7 @@ export class CreateuserComponent implements OnInit {
           lastName: this.lastName,
           birthdate: this.birth,
           pay: this.amount
-        } 
+        }
       ).subscribe(data => {
         this.update.emit(this.user.id);
         console.log(data, "empleado actualizado")
