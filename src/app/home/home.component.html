@@ -13,14 +13,17 @@
         <div class="row">
             <div class="col">
                 <h2>LIsta de empleados:</h2>
-                <app-listusers (getId)="setId($event)"></app-listusers>
+                <app-listusers [refresh]="refresh" (getId)="setId($event)"></app-listusers>
             </div>
-            <div class="col">
-                <ng-template [ngIf]="handleView">
-                    <app-createuser  (update)="updateList($event)" title="Actualizar Datos del Empleado" [user]="refresh" [updateUser]="true">
+
+            <ng-template [ngIf]="handleView">
+                <div class="col">
+                    <app-createuser (update)="updateList($event)" title="Actualizar Datos del Empleado" [user]="user"
+                        [updateUser]="true">
                     </app-createuser>
-                </ng-template>
-            </div>
+                </div>
+            </ng-template>
+
         </div>
     </div>
     <div class="content">
